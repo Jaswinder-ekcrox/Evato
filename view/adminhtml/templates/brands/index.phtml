@@ -1,0 +1,106 @@
+<?php
+/**
+ * Copyright © 2015 evatocommerce. All rights reserved.
+ */
+?>
+<?php
+/**
+ * {{controller}} {{action}} template
+ *
+ * @var $block \Evato\Globis\Block\Adminhtml\Sagedbfactsettingsbackend\Index
+ */
+?>
+
+<?php $url= $block->getUrl('Evato/Globis/Brands'); ?>
+
+<?php $formkey= $block->getFormKey(); ?>
+
+<script type="text/javascript" src="<?php echo $block->getViewFileUrl('prototype/prototype.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $block->getViewFileUrl('prototype/prototype-amd.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $block->getViewFileUrl('prototype/window.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $block->getViewFileUrl('prototype/validation.js'); ?>"></script>
+<link  rel="stylesheet" type="text/css"  media="all" href="<?php echo $block->getViewFileUrl('prototype/windows/themes/default.css'); ?>" />
+<link  rel="stylesheet" type="text/css"  media="all" href="<?php echo $block->getViewFileUrl('prototype/windows/themes/magento.css'); ?>" /> 
+
+	<div>
+		<!--div class="fieldset"> 
+			<div class="field required">
+				<label class="label" for="name" style="float:left;margin-right:78px;"><?php echo __('Choose Date') ?><em>*</em></label>
+				<div class="datepicker">
+					<input name="date" id="date" style="height: 33px; width: 250px;" type="text" title="Choose Date" value="" class="input-text required-entry" autocomplete="off" readonly="readonly" type="text"  aria-required="true"  />
+					<br><br>
+				</div>
+			</div>
+		</div-->
+
+		<div class="actions-toolbar">
+			<div class="primary">
+				<input type="hidden" name="hideit" id="hideit" value="" />
+				<button type="submit" name="submit" title="<?php echo __('Submit') ?>" class="action submit primary" onclick="newproductAjaxData();" >
+					<span><?php echo __('Synchronize New Brands') ?></span>
+				</button>
+				
+				<!--button type="submit" title="<?php echo __('Submit') ?>" class="action submit primary" onclick="updatedproductAjaxData();" >
+					<span><?php echo __('Synchronize Updated Products Brands') ?></span>
+				</button-->
+			</div>
+		</div>
+	</div>
+	
+	<!--------------------Form for Single Artcode Import-----------------------
+	<div style="margin-top:50px;">
+		<div class="fieldset">
+			<h2 class="legend"><?php echo __('Synchronise Artcode Product Data') ?></h2>
+			<div class="field required">
+				<label class="label" for="name" style="float:left;margin-right:78px;"><?php echo __('Enter Artcode') ?><em>*</em></label>
+				<div class="datepicker">
+					<input name="artcode" id="artcode" style="height: 33px; width: 250px;" type="text" title="Choose Date" value="" class="input-text required-entry" autocomplete="off" type="text"  aria-required="true"  />
+					<br><br>
+				</div>
+			</div>
+		</div>
+		
+		<div class="actions-toolbar">
+			<div class="primary">
+				<input type="hidden" name="hideit" id="hideit" value="" />
+				<button type="submit" title="<?php echo __('Submit') ?>" class="action submit primary" onclick="singleproductAjaxData();" >
+					<span><?php echo __('Synchronize Product Data') ?></span>
+				</button>
+			</div>
+		</div>
+	</div>
+	
+	-->
+	
+	<?php //echo "%%%%%%%%%%%%".$product_url= $block->getUrl('EvatoErp/SageDBFACTsettings/Items/Save'); ?>
+	
+<?php $brands_url=$this->getUrl('*/*/syncbrands');?>
+	
+
+<script>
+     require([
+          "jquery",
+          "mage/calendar"
+     ], function($){
+         $("#date").calendar({
+              buttonText:"<?php echo __('Select Date') ?>",
+			  dateFormat: "dd/mm/yyyy"
+         });
+       });
+</script>
+
+<script type="text/javascript">
+	
+    function newproductAjaxData(){
+
+				var url = "<?php echo $brands_url; ?>"+"?type=new";
+				
+				 win = new Window({ title: "Synchronize New Images", url:url,class:'modal-popup', className:'magento', zIndex:3000, destroyOnClose: true, recenterAuto:false, resizable: false, width:780, height:500, minimizable: false, maximizable: false, draggable: false});
+				win.showCenter(true);
+			
+	}
+
+
+</script>
+   
+  

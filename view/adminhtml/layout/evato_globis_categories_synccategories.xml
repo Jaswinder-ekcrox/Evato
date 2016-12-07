@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 EvatoErp. All rights reserved.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+   
+   <head>
+        <link src="prototype/prototype.js"/>
+        <link src="prototype/prototype-amd.js"/>
+        <link src="prototype/window.js"/>
+		<link src="prototype/validation.js"/>
+        <css src="prototype/windows/themes/default.css"/>
+        <css src="prototype/windows/themes/magento.css"/>
+    </head>
+   
+    <body>
+        <referenceContainer name="content">			
+			<block class="Evato\Globis\Block\Adminhtml\Categories" name="categories_index" template="categories/syncCategories.phtml"></block>
+        </referenceContainer>   
+    </body>
+</page>

@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	/*margin:0px;
+	padding:0px;*/
+	font-family:Arial, Helvetica, sans-serif
+}
+
+/*27-10-16*/
+.magento_n {
+    height: 49px !important;
+}
+.dialog table.table_window {
+    background-color: #eb5202 !important;
+}
+.dialog {
+    border-radius: 3px ;
+    height: 557px !important;
+}
+.magento_close {
+    background: rgba(0, 0, 0, 0) url("/pub/media/theme/preview/close.png") no-repeat scroll 0 0 !important;
+    cursor: pointer;
+    height: 19px !important;
+    position: absolute;
+    right: 12px !important;
+    top: 12px !important;
+    width: 20px !important;
+    z-index: 1000;
+}
+/*.menu-wrapper .logo {
+    float: none !important;
+}*/

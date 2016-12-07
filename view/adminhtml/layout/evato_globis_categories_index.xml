@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 EvatoErp. All rights reserved.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+	
+	 <head>
+		<link src="Evato_Globis::prototype/prototype.js"/>		
+		<link src="Evato_Globis::prototype/prototype-amd.js"/>		
+		<link src="Evato_Globis::prototype/window.js"/>		
+		<link src="Evato_Globis::prototype/validation.js"/>
+		<css src="Evato_Globis::prototype/windows/themes/default.css"/>		
+		<css src="Evato_Globis::prototype/windows/themes/magento.css"/>
+		<css src="Evato_Globis::css/add_custom.css"/>	
+    </head>
+        
+   
+    <body>      
+        <referenceContainer name="content">		
+			<block class="Evato\Globis\Block\Adminhtml\Categories" name="categories_index" template="categories/index.phtml"></block>
+        </referenceContainer> 
+    </body>
+</page>

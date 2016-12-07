@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 EvatoErp. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="evato::base" title="GLOBIS" module="Evato_Globis" sortOrder="11" resource="Evato_Globis::sample"/>
+        <add id="evato_globis::globis" title="Synchronize Products" module="Evato_Globis" sortOrder="10" parent="evato::base" action="evato_globis/products/" resource="Evato_Globis::products"/>
+        <add id="evato_globis::globis_customers" title="Synchronize Customers" module="Evato_Globis" sortOrder="20" parent="evato::base" action="evato_globis/customers/" resource="Evato_Globis::customers"/>
+		<add id="evato_globis::globis_brands" title="Synchronize Brands" module="Evato_Globis" sortOrder="30" parent="evato::base" action="evato_globis/brands/" resource="Evato_Globis::brands"/>
+		<add id="evato_globis::globis_categories" title="Synchronize Categories" module="Evato_Globis" sortOrder="40" parent="evato::base" action="evato_globis/categories/" resource="Evato_Globis::categories"/>
+		<!--add id="evatoerp_sagedbfactsettings::sagedbfactsettings_images" title="Synchronize Images" module="EvatoErp_SageDBFACTsettings" sortOrder="20" parent="evatoerp::base" action="evatoerp_sagedbfactsettings/images/" resource="EvatoErp_SageDBFACTsettings::images"/>
+		<add id="evatoerp_sagedbfactsettings::sagedbfactsettings_customers" title="Synchronize Customers" module="EvatoErp_SageDBFACTsettings" sortOrder="30" parent="evatoerp::base" action="evatoerp_sagedbfactsettings/customers/" resource="EvatoErp_SageDBFACTsettings::customers"/>
+		<add id="evatoerp_sagedbfactsettings::sagedbfactsettings_categories" title="Synchronize Categories" module="EvatoErp_SageDBFACTsettings" sortOrder="40" parent="evatoerp::base" action="evatoerp_sagedbfactsettings/categories/" resource="EvatoErp_SageDBFACTsettings::categories"/>
+		<add id="evatoerp_sagedbfactsettings::sagedbfactsettings_sublogin" title="Synchronize SubLogin" module="EvatoErp_SageDBFACTsettings" sortOrder="50" parent="evatoerp::base" action="evatoerp_sagedbfactsettings/sublogin/" resource="EvatoErp_SageDBFACTsettings::sublogin"/-->
+    </menu>
+</config>

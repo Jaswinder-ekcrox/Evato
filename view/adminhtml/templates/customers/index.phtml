@@ -1,0 +1,222 @@
+<?php
+/**
+ * Copyright © 2015 evatocommerce. All rights reserved.
+ */
+?>
+<?php
+/**
+ * {{controller}} {{action}} template
+ *
+ * @var $block \Evato\SageDBFACTsettings\Block\Adminhtml\Sagedbfactsettingsbackend\Index
+ */
+?>
+
+<?php $url= $block->getUrl('Evato/Globis/Customers'); ?>
+
+<?php $formkey= $block->getFormKey();?>
+
+<script type="text/javascript" src="<?php echo $block->getViewFileUrl('prototype/prototype.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $block->getViewFileUrl('prototype/prototype-amd.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $block->getViewFileUrl('prototype/window.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $block->getViewFileUrl('prototype/validation.js'); ?>"></script>
+<link  rel="stylesheet" type="text/css"  media="all" href="<?php echo $block->getViewFileUrl('prototype/windows/themes/default.css'); ?>" />
+<link  rel="stylesheet" type="text/css"  media="all" href="<?php echo $block->getViewFileUrl('prototype/windows/themes/magento.css'); ?>" />
+
+	
+		
+<div style="display:none;">
+		<div class="actions-toolbar">
+			<div class="primary">
+				<input type="hidden" name="hideit" id="hideit" value="" />
+				<button type="submit" title="<?php echo __('Submit') ?>" class="action submit primary" onclick="newproductAjaxData();" >
+					<span><?php echo __('Synchronize New Customers') ?></span>
+				</button>
+				
+				<button type="submit" title="<?php echo __('Submit') ?>" class="action submit primary" onclick="updatedproductAjaxData();" >
+					<span><?php echo __('Synchronize Updated Customers') ?></span>
+				</button>
+			</div>
+		</div>
+	</div>
+	
+	<!--------------------Form for Single Artcode Import----------------------->
+	<div style="margin-top:50px;">
+		<!--div class="fieldset">
+			<h2 class="legend"><?php echo __('Synchronise Artcode Product Data') ?></h2>
+			<div class="field required">
+				<label class="label" for="name" style="float:left;margin-right:78px;"><?php echo __('Enter Artcode') ?><em>*</em></label>
+				<div class="datepicker">
+					<input name="artcode" id="artcode" style="height: 33px; width: 250px;" type="text" title="Choose Date" value="" class="input-text required-entry" autocomplete="off" type="text"  aria-required="true"  />
+					<br><br>
+				</div>
+			</div>
+		</div-->
+		<div>
+		<div class="fieldset"> 
+			<div class="field required">
+				<label class="label" for="name" style="float:left;margin-right:78px;"><?php echo __('Choose Date') ?><em>*</em></label>
+				<div class="datepicker">
+					<input name="date" id="date" style="height: 33px; width: 250px;" type="text" title="Choose Date" value="" class="input-text required-entry" autocomplete="off" readonly="readonly" type="text"  aria-required="true"  />
+					<br><br>
+				</div>
+			</div>
+		</div>
+		<div class="actions-toolbar">
+			<div class="primary">
+				<input type="hidden" name="hideit" id="hideit" value="" />
+				<button type="submit" title="<?php echo __('Submit') ?>" class="action submit primary" onclick="singleproductAjaxData();" >
+					<span><?php echo __('Synchronize Customers Data') ?></span>
+				</button>
+			</div>
+		</div>
+	</div>
+	
+	<?php //echo "%%%%%%%%%%%%".$product_url= $block->getUrl('EvatoErp/SageDBFACTsettings/Items/Save'); ?>
+	
+<?php $product_url=$this->getUrl('*/*/synccustomers');?>
+	
+
+<script>
+     require([
+          "jquery",
+          "mage/calendar"
+     ], function($){
+         $("#date").calendar({
+              buttonText:"<?php echo __('Select Date') ?>",
+			  dateFormat: "dd/mm/yyyy"
+         });
+       });
+</script>
+
+<script type="text/javascript">
+	
+
+    
+    function newproductAjaxData(){
+   
+		var date = jQuery('#date').val();
+		
+		if(date == ''){
+			alert('Please Select Date');
+			return false;
+		} else{
+			
+			 if(isDate(date)){
+				 
+				// var url = "<?php echo $product_url;?>"+"?type=new&date="+date;
+				var url = "<?php echo $product_url;?>"+"?type=new&date="+date;
+				
+				 win = new Window({ title: "Synchronize New Customers", url:url,class:'modal-popup', className:'magento', zIndex:3000, destroyOnClose: true, recenterAuto:false, resizable: false, width:780, height:500, minimizable: false, maximizable: false, draggable: false});
+				win.showCenter(true);
+				 
+			 } else{
+				 
+				 alert("Invalid date format!");
+				 return false;
+				 
+			 }
+			
+		}   
+			  
+	}
+
+    function updatedproductAjaxData(){
+		
+		var date = jQuery('#date').val();
+	
+		if(date == ''){
+				alert('Please Select Date');
+				return false;
+			} else{
+				
+				if(isDate(date)){
+					
+				  var url = "<?php echo $product_url;?>"+"?type=update&date="+date;
+				  win = new Window({ title: "Synchronize Updated Customers", url:url, className:'magento', zIndex:3000, destroyOnClose: true, recenterAuto:false, resizable: false, width:780, height:500, minimizable: false, maximizable: false, draggable: false});
+				  win.showCenter(true);
+					
+				} else{
+					alert('Invalid Date');
+					return false;
+				}
+			}
+}
+
+function singleproductAjaxData(){
+		//var artcode = jQuery('#artcode').val();
+		var numberRegex = /^[+-]?\d+(\.\d+)?([eE][+-]?\d+)?$/;
+  //       var date = jQuery('#date').val();
+	
+		// if(date == ''){
+		// 		alert('Please Select Date');
+		// 		return false;
+		// 	} 
+
+
+
+
+		/*
+		if(artcode == ''){
+			alert('Please enter artcode');
+			return false;
+		} else{
+			*/
+			//if(numberRegex.test(artcode)) {
+
+				 // var url = "<?php echo $product_url;?>"+"?type=single&artcode="+artcode;
+				  var url = "<?php echo $product_url;?>"+"?type=single";
+				  win = new Window({ title: "Synchronize Customers Data", url:url, className:'magento', zIndex:3000, destroyOnClose: true, recenterAuto:false, resizable: false, width:780, height:500, minimizable: false, maximizable: false, draggable: false});
+				  win.showCenter(true);
+				/* 
+			 } else{
+				 
+				 alert("Invalid artcode!");
+				 return false;
+				 
+			 }
+			
+		}*/   
+			  
+	}
+
+function isDate(txtDate){
+
+  var currVal = txtDate;
+
+  if(currVal == ''){
+	return false;
+  }
+    
+  //Declare Regex 
+  var rxDatePattern = /^(\d{1,2})(\/|-)(\d{1,2})(\/|-)(\d{4})$/;
+  var dtArray = currVal.match(rxDatePattern); // is format OK?
+
+  if (dtArray == null){
+	return false;
+  } 
+
+  //Checks for dd/mm/yyyy format.
+    dtDay = dtArray[1];
+    dtMonth= dtArray[3];
+    dtYear = dtArray[5]; 
+
+  if (dtMonth < 1 || dtMonth > 12){
+      return false;
+  } else if (dtDay < 1 || dtDay> 31){
+      return false;
+  } else if ((dtMonth==4 || dtMonth==6 || dtMonth==9 || dtMonth==11) && dtDay ==31){
+      return false;
+  } else if (dtMonth == 2){
+     var isleap = (dtYear % 4 == 0 && (dtYear % 100 != 0 || dtYear % 400 == 0));
+     if (dtDay> 29 || (dtDay ==29 && !isleap))
+          return false
+  }
+
+  return true;
+
+}
+
+   
+   </script>
+   
+  

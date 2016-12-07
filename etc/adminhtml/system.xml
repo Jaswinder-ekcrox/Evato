@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Location: magento2_root/app/code/Vendorname/Extensionname/etc/adminhtml/system.xml
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="globis" translate="label" sortOrder="1000">
+            <label>EVATO</label>
+        </tab>
+		<section id="evato_globis" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+		<label>EVATO GLOBIS General settings</label>
+		<tab>globis</tab>
+		<resource>Evato_Globis::config</resource>
+		<group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+		<label>General Options</label>
+		<field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+		<label>Enabled</label>
+		<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+		</field>
+		<field id="client_id" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+			<label>Globis Client ID</label>
+		</field>
+		<field id="client_secret" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+			<label>Globis Client Secret</label>
+		</field>
+		<field id="api_url" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+			<label>API URL</label>
+		</field>
+		<field id="api_username" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+			<label>API Username</label>
+		</field>
+		<field id="api_password" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+			<label>API Password</label>
+		</field>
+		</group>
+		</section>
+    </system>
+</config>
+
